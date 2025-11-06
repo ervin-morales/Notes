@@ -1,0 +1,152 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Notebook Template for Math & Physics
+% A template for students (like those at ESFM-IPN)
+% who need to take structured, rigorous notes.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set the document class. '12pt' is readable, 'letterpaper' is standard in the Americas.
+\documentclass[12pt, letterpaper]{article}
+
+%=========== PREAMBLE: PACKAGES AND SETUP ===========
+
+% 1. FONT & ENCODING
+\usepackage[utf8]{inputenc} % Handle UTF-8 input characters
+\usepackage[T1]{fontenc}      % Use modern 8-bit font encoding
+\usepackage{lmodern}          % Use the Latin Modern font (a nice default)
+
+% 2. PAGE LAYOUT
+\usepackage[margin=1in]{geometry} % Set 1-inch margins on all sides
+
+% 3. ESSENTIAL MATH & PHYSICS PACKAGES
+\usepackage{amsmath}    % American Mathematical Society's (AMS) math enhancements
+\usepackage{amssymb}    % AMS extra math symbols (like \mathbb{R})
+\usepackage{amsfonts}   % AMS math fonts
+\usepackage{amsthm}     % AMS theorem environments (for proofs, definitions)
+\usepackage{physics}    % Excellent package for physics notation (vectors, derivatives, etc.)
+
+% 4. UTILITY PACKAGES
+\usepackage{graphicx}         % For including images (\includegraphics)
+\usepackage{xcolor}           % For defining custom colors
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} % Clickable links (ToC, refs)
+\usepackage{booktabs}         % For professional-looking tables (\toprule, \midrule)
+\usepackage{parskip}          % Use space between paragraphs instead of indentation
+
+% 5. METADATA
+\title{}
+\author{Morales Guerra Ervin Omar} % <-- EDIT THIS
+\date{\today}           % Automatically uses today's date
+
+%=========== CUSTOM THEOREM ENVIRONMENTS ===========
+% This section sets up the styles for definitions, theorems, etc.
+
+\theoremstyle{definition} % Upright text, bold heading
+\newtheorem{definition}{Definition}[section] % Numbered as Definition 1.1, 1.2, etc.
+\newtheorem{example}[definition]{Example}    % Shares numbering with definitions
+\newtheorem{problem}[definition]{Problem}    % Shares numbering with definitions
+
+\theoremstyle{plain} % Italicized text, bold heading
+\newtheorem{theorem}[definition]{Theorem}      % Shares numbering
+\newtheorem{lemma}[definition]{Lemma}          % Shares numbering
+\newtheorem{corollary}[definition]{Corollary}    % Shares numbering
+\newtheorem{proposition}[definition]{Proposition} % Shares numbering
+
+\theoremstyle{remark} % Upright text, italic heading
+\newtheorem{remark}[definition]{Remark} % For side notes or observations
+
+% The 'proof' environment is already defined by amsthm
+% It automatically adds a Q.E.D. symbol (□) at the end.
+
+%=========== CUSTOM MATH SHORTCUTS (MACROS) ===========
+% Define your own commands here to save time
+
+\newcommand{\R}{\mathbb{R}} % Shortcut for Real Numbers
+\newcommand{\C}{\mathbb{C}} % Shortcut for Complex Numbers
+\newcommand{\Z}{\mathbb{Z}} % Shortcut for Integers
+\newcommand{\N}{\mathbb{N}} % Shortcut for Natural Numbers
+\newcommand{\Q}{\mathbb{Q}} % Shortcut for Rational Numbers
+
+% Physics shortcuts
+\newcommand{\Lag}{\mathcal{L}} % Lagrangian
+\newcommand{\Ham}{\mathcal{H}} % Hamiltonian
+
+
+%=========== DOCUMENT BODY ===========================
+\begin{document}
+		
+	\maketitle % Display the title, author, and date
+	
+	\tableofcontents % Generate a Table of Contents
+	\newpage
+	
+	%=========== START OF NOTES ==========================
+	
+	\section{First Topic (e.g., Classical Mechanics)}
+	
+	\subsection{Newton's Laws}
+	We begin with a formal definition of force.
+	
+	\begin{definition}[Inertial Frame]
+		A frame of reference in which Newton's first law holds is called an **inertial frame**. That is, an object with no net force acting on it will move with constant velocity.
+	\end{definition}
+	
+	\begin{theorem}[Newton's Second Law]
+		The net force $\vb{F}$ acting on a particle of mass $m$ is proportional to its acceleration $\vb{a}$.
+		\begin{equation}
+			\vb{F} = m\vb{a}
+			\label{eq:newtons_second}
+		\end{equation}
+		Using the `physics` package, we can also write this using derivatives:
+		\begin{equation}
+			\vb{F} = \dv{\vb{p}}{t} = \dv{}{t}(m\vb{v})
+		\end{equation}
+	\end{theorem}
+	
+	\begin{proof}
+		The proof is based on experimental observation. We observe that for a given body, the ratio of force magnitude to acceleration magnitude is constant. We define this constant as the inertial mass, $m$.
+	\end{proof}
+	
+	\begin{remark}
+		Equation \eqref{eq:newtons_second} is a vector equation, meaning it is equivalent to three scalar equations: $F_x = ma_x$, $F_y = ma_y$, and $F_z = ma_z$.
+	\end{remark}
+	
+	\section{Second Topic (e.g., Linear Algebra)}
+	
+	\subsection{Vector Spaces}
+	Here is an example of a multi-line equation using the `align*` environment (the `*` means it won't be numbered).
+	
+	\begin{example}[Maxwell's Equations]
+		A famous example of a coupled system of partial differential equations:
+		\begin{align*}
+			\div{\vb{E}} &= \frac{\rho}{\epsilon_0} \\
+			\div{\vb{B}} &= 0 \\
+			\curl{\vb{E}} &= -\pdv{\vb{B}}{t} \\
+			\curl{\vb{B}} &= \mu_0 \left( \vb{J} + \epsilon_0 \pdv{\vb{E}}{t} \right)
+		\end{align*}
+		%%		Note the use of `\div{}`, `\curl{}`, and `\pdv{}{}` from the `physics` package.
+	\end{example}
+	
+	\subsection{Eigenvalue Problems}
+	We often seek solutions to the equation $A\vb{v} = \lambda\vb{v}$.
+	
+	\begin{proposition}
+		If $A$ is an $n \times n$ Hermitian matrix, its eigenvalues are real.
+	\end{proposition}
+	
+	\begin{proof}
+		Let $A$ be a Hermitian matrix, so $A = A^\dagger$. Let $\lambda$ be an eigenvalue with corresponding eigenvector $\vb{v}$.
+		$$ A\vb{v} = \lambda\vb{v} $$
+		Taking the Hermitian conjugate of $\vb{v}$ and multiplying:
+		$$ \vb{v}^\dagger A \vb{v} = \lambda \vb{v}^\dagger \vb{v} $$
+		Now, take the Hermitian conjugate of the first equation:
+		$$ (A\vb{v})^\dagger = (\lambda\vb{v})^\dagger \implies \vb{v}^\dagger A^\dagger = \lambda^* \vb{v}^\dagger $$
+		Since $A = A^\dagger$, this becomes $\vb{v}^\dagger A = \lambda^* \vb{v}^\dagger$. Multiply on the right by $\vb{v}$:
+		$$ \vb{v}^\dagger A \vb{v} = \lambda^* \vb{v}^\dagger \vb{v} $$
+		Comparing the two results, we have:
+		$$ \lambda \vb{v}^\dagger \vb{v} = \lambda^* \vb{v}^\dagger \vb{v} $$
+		Since $\vb{v}$ is an eigenvector, $\vb{v}^\dagger \vb{v} = \norm{\vb{v}}^2 \neq 0$. Therefore, we can divide by it, leaving:
+		$$ \lambda = \lambda^* $$
+		This is only true if $\lambda$ is a real number.
+	\end{proof}
+
+	
+\end{document}

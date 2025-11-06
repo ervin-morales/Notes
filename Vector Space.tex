@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Notebook Template for Math & Physics
+% A template for students (like those at ESFM-IPN)
+% who need to take structured, rigorous notes.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set the document class. '12pt' is readable, 'letterpaper' is standard in the Americas.
+\documentclass[12pt, letterpaper]{article}
+
+%=========== PREAMBLE: PACKAGES AND SETUP ===========
+
+% 1. FONT & ENCODING
+\usepackage[utf8]{inputenc} % Handle UTF-8 input characters
+\usepackage[T1]{fontenc}      % Use modern 8-bit font encoding
+\usepackage{lmodern}          % Use the Latin Modern font (a nice default)
+
+% 2. PAGE LAYOUT
+\usepackage[margin=1in]{geometry} % Set 1-inch margins on all sides
+
+% 3. ESSENTIAL MATH & PHYSICS PACKAGES
+\usepackage{amsmath}    % American Mathematical Society's (AMS) math enhancements
+\usepackage{amssymb}    % AMS extra math symbols (like \mathbb{R})
+\usepackage{amsfonts}   % AMS math fonts
+\usepackage{amsthm}     % AMS theorem environments (for proofs, definitions)
+\usepackage{physics}    % Excellent package for physics notation (vectors, derivatives, etc.)
+
+% 4. UTILITY PACKAGES
+\usepackage{graphicx}         % For including images (\includegraphics)
+\usepackage{xcolor}           % For defining custom colors
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} % Clickable links (ToC, refs)
+\usepackage{booktabs}         % For professional-looking tables (\toprule, \midrule)
+\usepackage{parskip}          % Use space between paragraphs instead of indentation
+
+% 5. METADATA
+\title{Vector Space}
+\author{Morales Guerra Ervin Omar} % <-- EDIT THIS
+\date{\today}           % Automatically uses today's date
+
+%=========== CUSTOM THEOREM ENVIRONMENTS ===========
+% This section sets up the styles for definitions, theorems, etc.
+
+\theoremstyle{definition} % Upright text, bold heading
+\newtheorem{definition}{Definition}[section] % Numbered as Definition 1.1, 1.2, etc.
+\newtheorem{example}[definition]{Example}    % Shares numbering with definitions
+\newtheorem{problem}[definition]{Problem}    % Shares numbering with definitions
+
+\theoremstyle{plain} % Italicized text, bold heading
+\newtheorem{theorem}[definition]{Theorem}      % Shares numbering
+\newtheorem{lemma}[definition]{Lemma}          % Shares numbering
+\newtheorem{corollary}[definition]{Corollary}    % Shares numbering
+\newtheorem{proposition}[definition]{Proposition} % Shares numbering
+
+\theoremstyle{remark} % Upright text, italic heading
+\newtheorem{remark}[definition]{Remark} % For side notes or observations
+
+% The 'proof' environment is already defined by amsthm
+% It automatically adds a Q.E.D. symbol (□) at the end.
+
+%=========== CUSTOM MATH SHORTCUTS (MACROS) ===========
+% Define your own commands here to save time
+
+\newcommand{\R}{\mathbb{R}} % Shortcut for Real Numbers
+\newcommand{\C}{\mathbb{C}} % Shortcut for Complex Numbers
+\newcommand{\Z}{\mathbb{Z}} % Shortcut for Integers
+\newcommand{\N}{\mathbb{N}} % Shortcut for Natural Numbers
+\newcommand{\Q}{\mathbb{Q}} % Shortcut for Rational Numbers
+
+% Physics shortcuts
+\newcommand{\Lag}{\mathcal{L}} % Lagrangian
+\newcommand{\Ham}{\mathcal{H}} % Hamiltonian
+
+
+%=========== DOCUMENT BODY ===========================
+\begin{document}
+	\maketitle % Display the title, author, and date
+	\newpage
+	\tableofcontents % Generate a Table of Contents
+	\newpage
+		
+\end{document}
